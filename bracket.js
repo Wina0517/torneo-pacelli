@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function loadAndRenderBracket() {
-    const sheetURL = "https://spreadsheets.google.com/feeds/cells/1Y36V0_4cFq9tV33ElslyUBNgj-liEBLgLnKO_HurLkg/1/public/full?alt=json";
-
+    const sheetURL = "https://spreadsheets.google.com/feeds/cells/1Y36V0_4cFq9tV33ElslyUBNgj-liEBLgLnKO_HurLkg/2/public/full?alt=json";
+    //   https://docs.google.com/spreadsheets/d/1Y36V0_4cFq9tV33ElslyUBNgj-liEBLgLnKO_HurLkg/edit?usp=sharing
     fetch(sheetURL)
       .then((res) => res.json())
       .then((data) => {
