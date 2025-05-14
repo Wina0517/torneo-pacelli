@@ -35,16 +35,17 @@ h1, h2 {
     box-shadow: 0 0 15px #00ffe7;
 }
 .logo-container {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
 }
 .logo {
-    max-width: 300px;
-    width: 100%;
+    max-width: 100%;
+    width: 400%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 0 15px #ffcc00;
+    border-radius: 12px;
+    box-shadow: 0 0 30px #ffcc00;
 }
 .btn {
     display: inline-block;
