@@ -60,3 +60,16 @@ ul.bracket li {
     font-weight: bold;
     color: #ffcc00;
 }
+.logo-container {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 15px #ffcc00;
+}
