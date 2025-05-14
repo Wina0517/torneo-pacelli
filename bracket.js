@@ -1,16 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
   const bracketContainer = document.getElementById("bracket");
+  const generateBtn = document.getElementById("genBtn");
 
-  fetch("equipos.json")
-    .then((res) => res.json())
-    .then((data) => {
-      const equipos = data.equipos;
-      renderRound("Ronda 1", equipos);
-    })
-    .catch((err) => {
-      console.error("Error al cargar los equipos:", err);
-      bracketContainer.innerHTML = "<p>Error al cargar el bracket.</p>";
-    });
+  bracketContainer.style.display = "none"; // Oculto por defecto
+
+  generateBtn.addEventListener("click", () => {
+    const pass = prompt("Clave de administrador:");
+    if (pass === "admin123") {
+      bracketContainer.style.display = "block";
+      loadBracket();
+    } else {
+      alert("Clave incorrecta.");
+    }
+  });
+
+  function loadBracket() {
+    fetch("equipos.json")
+      .then(res => res.json())
+      .then(data => {
+        const equipos = data.equipos;
+        renderRound("Ronda 1", equipos);
+      })
+      .catch(err => {
+        console.error("Error al cargar los equipos:", err);
+        bracketContainer.innerHTML = "<p>Error al cargar el bracket.</p>";
+      });
+  }
 
   function renderRound(title, teamList) {
     const section = document.createElement("div");
