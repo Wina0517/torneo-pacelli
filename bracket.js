@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
   const bracketContainer = document.getElementById("bracket");
   const generateBtn = document.getElementById("genBtn");
@@ -17,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function loadAndRenderBracket() {
-    const sheetURL = "https://spreadsheets.google.com/feeds/cells/1Y36V0_4cFq9tV33ElslyUBNgj-liEBLgLnKO_HurLkg/2/public/full?alt=json";
-    //   https://docs.google.com/spreadsheets/d/1Y36V0_4cFq9tV33ElslyUBNgj-liEBLgLnKO_HurLkg/edit?usp=sharing
+    const sheetURL = "https://spreadsheets.google.com/feeds/cells/2PACX-1vTIQCUQtawppOnE0cS5yuhkH3tCw7NLz3G_DTlmyMtKyf076_nmHKMRR2CrfkUBCTLyq0ykW32sbVy6/1/public/full?alt=json";
+
     fetch(sheetURL)
       .then((res) => res.json())
       .then((data) => {
