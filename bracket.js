@@ -1,63 +1,108 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   const bracketContainer = document.getElementById("bracket");
-  const generateBtn = document.getElementById("generateBracket");
+  const generateBtn = document.getElementById("genBtn");
+  const triangularBtn = document.getElementById("triangularBtn");
 
-  // Protección con clave para admins
-  generateBtn.addEventListener("click", function () {
-    const pass = prompt("Ingrese la clave de administrador:");
-    if (pass !== "admin123") {
+  let adminMode = false;
+
+  generateBtn.addEventListener("click", () => {
+    const pass = prompt("Clave de administrador:");
+    if (pass === "admin123") {
+      adminMode = true;
+      loadAndRenderBracket();
+    } else {
       alert("Clave incorrecta.");
-      return;
     }
-    loadAndRenderBracket();
   });
 
   function loadAndRenderBracket() {
     const sheetURL = "https://spreadsheets.google.com/feeds/cells/1Y36V0_4cFq9tV33ElslyUBNgj-liEBLgLnKO_HurLkg/1/public/full?alt=json";
 
     fetch(sheetURL)
-      .then(response => response.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         const entries = data.feed.entry;
-        const teamNames = [];
+        const teams = {};
+        const rounds = {
+          1: [],
+          2: [],
+          3: [],
+          4: [],
+          podium: []
+        };
 
-        // Recorrer datos y extraer columna C (col = 3)
-        for (let i = 0; i < entries.length; i++) {
-          const cell = entries[i];
-          if (cell.gs$cell.col == "3" && cell.gs$cell.row !== "1") {
-            const name = cell.content.$t.trim();
-            if (name) teamNames.push(name);
+        entries.forEach((cell) => {
+          const col = parseInt(cell.gs$cell.col);
+          const row = parseInt(cell.gs$cell.row);
+          const value = cell.content.$t.trim();
+
+          if (col === 3 && row !== 1) { // Columna C: Nombres de equipos
+            teams[row] = value;
           }
+          if (col === 12 && row !== 1) { // Columna L: Ganadores 1vos
+            rounds[2].push(value);
+          }
+          if (col === 13 && row !== 1) { // Columna M: Ganadores Repechaje
+            rounds[3].push(value);
+          }
+          if (col === 14 && row !== 1) { // Columna N: Ganadores Octavos
+            rounds[4].push(value);
+          }
+          if (col === 16 && row !== 1) { // Columna P: 1er lugar
+            rounds.podium.push("🥇 " + value);
+          }
+          if (col === 17 && row !== 1) { // Columna Q: 2do lugar
+            rounds.podium.push("🥈 " + value);
+          }
+          if (col === 18 && row !== 1) { // Columna R: 3er lugar
+            rounds.podium.push("🥉 " + value);
+          }
+        });
+
+        const teamNames = Object.values(teams);
+        if (teamNames.length < 1) {
+          bracketContainer.innerHTML = "<p>No hay equipos inscritos aún.</p>";
+          return;
         }
 
-        // Mezclar aleatoriamente los equipos
-        const shuffled = teamNames.sort(() => Math.random() - 0.5);
+        // Fase 1 siempre visible
+        renderRound("Ronda 1", teamNames);
 
-        // Mostrar el bracket
-        renderBracket(shuffled);
+        // Mostrar fases siguientes si hay datos o si es vista admin
+        if (adminMode || rounds[2].length > 0) renderRound("Octavos", rounds[2]);
+        if (adminMode || rounds[3].length > 0) renderRound("Cuartos", rounds[3]);
+        if (adminMode || rounds[4].length > 0) renderRound("Semifinal", rounds[4]);
+        if (adminMode || rounds.podium.length > 0) renderRound("Ganadores", rounds.podium);
+
+        if (rounds[4].length === 3 || adminMode) {
+          triangularBtn.style.display = "block";
+        }
       })
-      .catch(error => {
-        console.error("Error al cargar datos:", error);
+      .catch((err) => {
+        console.error("Error al cargar la hoja:", err);
         bracketContainer.innerHTML = "<p>Error al cargar el bracket.</p>";
       });
   }
 
-  function renderBracket(teams) {
-    bracketContainer.innerHTML = "";
+  function renderRound(title, teamList) {
+    const section = document.createElement("div");
+    section.className = "round-block";
+    const heading = document.createElement("h3");
+    heading.innerText = title;
+    section.appendChild(heading);
+
     const ul = document.createElement("ul");
     ul.className = "bracket";
-
-    for (let i = 0; i < teams.length; i += 2) {
+    for (let i = 0; i < teamList.length; i += 2) {
       const li = document.createElement("li");
-      li.innerHTML = `
-        <div class="match">
-          <span>${teams[i] || "BYE"}</span> vs <span>${teams[i + 1] || "BYE"}</span>
-        </div>
-      `;
+      const team1 = teamList[i] || "Por definir";
+      const team2 = teamList[i + 1] || "Por definir";
+      li.innerHTML = `<div class="match"><span>${team1}</span> vs <span>${team2}</span></div>`;
       ul.appendChild(li);
     }
 
-    bracketContainer.appendChild(ul);
+    section.appendChild(ul);
+    bracketContainer.appendChild(section);
   }
 });

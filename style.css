@@ -6,70 +6,60 @@ body {
     margin: 0;
     padding: 20px;
 }
-
 h1, h2 {
     color: #00ffe7;
     text-align: center;
     text-shadow: 0 0 10px #00ffe7;
 }
-
-section {
+.nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    background-color: #111;
+}
+.nav ul li {
+    margin: 0 15px;
+}
+.nav ul li a {
+    color: #00ffe7;
+    text-decoration: none;
+}
+.section {
     max-width: 900px;
     margin: auto;
     padding: 20px;
-    border: 2px solid #00ffe7;
+    background-color: #111;
     border-radius: 10px;
     margin-bottom: 30px;
-    background-color: #111;
     box-shadow: 0 0 15px #00ffe7;
 }
-
-button {
-    display: block;
-    margin: 20px auto;
+.logo-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.logo {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #ffcc00;
+}
+.btn {
+    display: inline-block;
     padding: 12px 24px;
     font-size: 1rem;
+    color: #000;
     background-color: #00ffe7;
     border: none;
-    border-radius: 5px;
-    color: #000;
+    border-radius: 6px;
+    text-decoration: none;
     cursor: pointer;
+    margin-top: 20px;
     box-shadow: 0 0 10px #00ffe7;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
-
-button:hover {
+.btn:hover {
     background-color: #00bfa6;
-}
-
-ul.bracket {
-    list-style: none;
-    padding: 0;
-}
-
-ul.bracket li {
-    padding: 10px;
-    margin: 10px;
-    background-color: #222;
-    border-left: 4px solid #00ffe7;
-    font-size: 1.1rem;
-    color: #fff;
-}
-
-.match span {
-    font-weight: bold;
-    color: #ffcc00;
-}
-.logo-container {
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.logo {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 15px #ffcc00;
 }
