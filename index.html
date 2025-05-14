@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Torneo Pacelli</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <ul>
+      <li><a href="#portada">Inicio</a></li>
+      <li><a href="#premios">Premios y Reglas</a></li>
+      <li><a href="#bracket">Bracket</a></li>
+    </ul>
+  </nav>
+  <section id="portada" class="section portada">
+    <h1>Torneo Pacelli</h1>
+    <img src="https://via.placeholder.com/600x300?text=Free+Fire+Torneo+Pacelli" alt="Torneo Pacelli">
+    <a href="TU_GOOGLE_FORM_URL" target="_blank" class="btn">Inscripción</a>
+  </section>
+  <section id="premios" class="section premios">
+    <h2>Premios</h2>
+    <ul>
+      <li>1° Lugar: 100.000 COP + Diamantes</li>
+      <li>2° Lugar: 50.000 COP + Diamantes</li>
+      <li>3° Lugar: 25.000 COP + Diamantes</li>
+    </ul>
+    <h2>Reglas</h2>
+    <ol>
+      <li>Uso de software original.</li>
+      <li>Respetar normativas de conducta.</li>
+      <li>Prohibido hacer trampas o usar hacks.</li>
+      <li>Decisiones del árbitro son inapelables.</li>
+    </ol>
+  </section>
+  <section id="bracket" class="section bracket-section">
+    <h2>Bracket del Torneo</h2>
+    <div id="bracket"></div>
+    <button id="genBtn" class="btn">Generar Enfrentamientos</button>
+    <button id="triangularBtn" class="btn" style="display:none;">Semifinal Triangular</button>
+  </section>
+  <script src="bracket.js"></script>
+</body>
+</html>
