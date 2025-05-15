@@ -67,3 +67,18 @@ h1, h2 {
   transform: scale(1.05);
   box-shadow: 0 0 25px #00ffbb;
 }
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #ccc;
+  background-color: #111;
+  border-top: 1px solid #00ffd0;
+  box-shadow: 0 -3px 15px rgba(0, 255, 208, 0.2);
+  margin-top: 40px;
+}
+
+.footer strong {
+  color: #00ffd0;
+  font-weight: bold;
+}
