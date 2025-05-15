@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const bracketContainer = document.getElementById("bracket");
   const generateBtn = document.getElementById("genBtn");
 
-  // bracketContainer.style.display = "none"; // Oculto por defecto
-
   generateBtn.addEventListener("click", () => {
     const pass = prompt("Clave de administrador:");
     if (pass === "admin123") {
@@ -15,11 +13,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function loadBracket() {
-    fetch("equipos.json")
+    fetch("equipos_con_podio.json")
       .then(res => res.json())
       .then(data => {
-        const equipos = data.equipos;
-        renderRound("Ronda 1", equipos);
+        renderRound("Ronda 1 (16vos)", data.equipos);
+        renderRound("Octavos de final", data.octavos);
+        renderRound("Repechaje", data.repechaje);
+        renderRound("Cuartos de final", data.cuartos);
+        renderRound("Semifinal", data.semifinal);
+        renderRound("Final", data.final);
+        renderPodio(data.podio);
       })
       .catch(err => {
         console.error("Error al cargar los equipos:", err);
@@ -43,6 +46,30 @@ document.addEventListener("DOMContentLoaded", function () {
       li.innerHTML = `<div class="match"><span>${t1}</span> vs <span>${t2}</span></div>`;
       ul.appendChild(li);
     }
+
+    section.appendChild(ul);
+    bracketContainer.appendChild(section);
+  }
+
+  function renderPodio(podio) {
+    const section = document.createElement("div");
+    section.className = "podio";
+    const heading = document.createElement("h3");
+    heading.innerText = "🥇 Podio del Torneo";
+    section.appendChild(heading);
+
+    const ul = document.createElement("ul");
+    ul.className = "bracket";
+
+    const oro = podio.oro || "Por definir";
+    const plata = podio.plata || "Por definir";
+    const bronce = podio.bronce || "Por definir";
+
+    ul.innerHTML = `
+      <li><div class="match"><span>🥇 ${oro}</span></div></li>
+      <li><div class="match"><span>🥈 ${plata}</span></div></li>
+      <li><div class="match"><span>🥉 ${bronce}</span></div></li>
+    `;
 
     section.appendChild(ul);
     bracketContainer.appendChild(section);
