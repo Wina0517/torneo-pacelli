@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function loadBracket() {
-    fetch("equipos_con_podio.json")
+    fetch("equipos.json")
       .then(res => res.json())
       .then(data => {
         renderRound("Ronda 1 (16vos)", data.equipos);
