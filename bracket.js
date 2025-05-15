@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const bracketContainer = document.getElementById("bracket");
   const generateBtn = document.getElementById("genBtn");
 
-  bracketContainer.style.display = "none"; // Oculto por defecto
+  // bracketContainer.style.display = "none"; // Oculto por defecto
 
   generateBtn.addEventListener("click", () => {
     const pass = prompt("Clave de administrador:");
