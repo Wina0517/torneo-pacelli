@@ -118,3 +118,70 @@ h1, h2 {
   display: block;
   padding: 4px 0;
 }
+/* === Estilos mejorados para Fixture Visual con animaciones y glow === */
+.tree {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  overflow-x: auto;
+  margin-top: 40px;
+  flex-wrap: nowrap;
+}
+
+.round {
+  flex: 1;
+  min-width: 160px;
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+.round:nth-child(1) { animation-delay: 0.2s; }
+.round:nth-child(2) { animation-delay: 0.4s; }
+.round:nth-child(3) { animation-delay: 0.6s; }
+.round:nth-child(4) { animation-delay: 0.8s; }
+.round:nth-child(5) { animation-delay: 1s; }
+.round:nth-child(6) { animation-delay: 1.2s; }
+
+.round h3 {
+  text-align: center;
+  color: #00ffd0;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-shadow: 0 0 6px #00ffd0;
+}
+
+.match {
+  background: #111;
+  border-left: 4px solid #00ffd0;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  box-shadow: 0 0 10px #00ffd0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: glowPulse 2.5s infinite ease-in-out;
+}
+
+.match:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px #00ffd0;
+}
+
+.match span {
+  display: block;
+  padding: 4px 0;
+  color: #fff;
+  text-align: center;
+}
+
+/* === Animaciones === */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 10px #00ffd0; }
+  50% { box-shadow: 0 0 20px #00ffd0; }
+}
