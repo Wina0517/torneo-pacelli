@@ -1,75 +1,70 @@
 {
   "equipos": [
-    "Escuadra Alpha",
-    "Escuadra Phantom",
-    "Escuadra Nova",
-    "Escuadra Shadow",
-    "Escuadra Viper",
-    "Escuadra Raptor",
-    "Escuadra Foxtrot",
-    "Escuadra Yankee",
-    "Escuadra Bravo",
-    "Escuadra Hawk",
-    "Escuadra Titan",
-    "Escuadra Echo",
-    "Escuadra Maverick",
-    "Escuadra Delta",
-    "Escuadra Lima",
-    "Escuadra Ghost",
-    "Escuadra Jaguar",
-    "Escuadra Zulu",
-    "Escuadra Charlie",
-    "Escuadra Wolf",
-    "Escuadra Orion",
-    "Escuadra Spartan",
-    "Escuadra Xray",
-    "Escuadra Kilo"
+    "Escuadra 1",
+    "Escuadra 2",
+    "Escuadra 3",
+    "Escuadra 4",
+    "Escuadra 5",
+    "Escuadra 6",
+    "Escuadra 7",
+    "Escuadra 8",
+    "Escuadra 9",
+    "Escuadra 10",
+    "Escuadra 11",
+    "Escuadra 12",
+    "Escuadra 13",
+    "Escuadra 14",
+    "Escuadra 15",
+    "Escuadra 16",
+    "Escuadra 17",
+    "Escuadra 18",
+    "Escuadra 19",
+    "Escuadra 20",
+    "Escuadra 21",
+    "Escuadra 22",
+    "Escuadra 23",
+    "Escuadra 24"
   ],
   "octavos": [
-    "Escuadra Alpha",
-    "Escuadra Nova",
-    "Escuadra Viper",
-    "Escuadra Foxtrot",
-    "Escuadra Bravo",
-    "Escuadra Titan",
-    "Escuadra Maverick",
-    "Escuadra Lima",
-    "Escuadra Jaguar",
-    "Escuadra Charlie",
-    "Escuadra Orion",
-    "Escuadra Xray"
-  ],
-  "repechaje": [
-    "Escuadra Raptor",
-    "Escuadra Echo",
-    "Escuadra Phantom",
-    "Escuadra Hawk",
-    "Escuadra Shadow",
-    "Escuadra Yankee"
+    "Escuadra 3",
+    "Escuadra 9",
+    "Escuadra 10",
+    "Escuadra 20",
+    "Escuadra 2",
+    "Escuadra 1",
+    "Escuadra 4",
+    "Escuadra 24",
+    "Escuadra 17",
+    "Escuadra 13",
+    "Escuadra 12",
+    "Escuadra 14"
   ],
   "cuartos": [
-    "Escuadra Orion",
-    "Escuadra Xray",
-    "Escuadra Maverick",
-    "Escuadra Shadow",
-    "Escuadra Titan",
-    "Escuadra Alpha",
-    "Escuadra Lima",
-    "Escuadra Nova"
+    "Escuadra 2",
+    "Escuadra 17",
+    "Escuadra 13",
+    "Escuadra 20",
+    "Escuadra 10",
+    "Escuadra 12"
+  ],
+  "repechaje": [
+    "Escuadra 2",
+    "Escuadra 17",
+    "Escuadra 12"
   ],
   "semifinal": [
-    "Escuadra Orion",
-    "Escuadra Maverick",
-    "Escuadra Titan",
-    "Escuadra Lima"
+    "Escuadra 13",
+    "Escuadra 10",
+    "Escuadra 20",
+    "Escuadra 2"
   ],
   "final": [
-    "Escuadra Titan",
-    "Escuadra Lima"
+    "Escuadra 13",
+    "Escuadra 20"
   ],
   "podio": {
-    "oro": "Escuadra Titan",
-    "plata": "Escuadra Lima",
-    "bronce": "Escuadra Orion"
+    "oro": "Escuadra 13",
+    "plata": "Escuadra 20",
+    "bronce": "Escuadra 10"
   }
 }

@@ -16,12 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch("equipos.json")
       .then(res => res.json())
       .then(data => {
-        renderRound("Ronda 1 (16vos)", data.equipos);
-        renderRound("Octavos de final", data.octavos);
-        renderRound("Repechaje", data.repechaje);
-        renderRound("Cuartos de final", data.cuartos);
-        renderRound("Semifinal", data.semifinal);
-        renderRound("Final", data.final);
+        renderRound("🟢 Ronda 1 (16vos)", data.equipos);
+        renderRound("⚔️ Octavos de final", data.octavos);
+        renderRound("🛡️ Cuartos de final", data.cuartos);
+        renderRound("♻️ Repechaje", data.repechaje);
+        renderRound("🔥 Semifinal", data.semifinal);
+        renderRound("🏁 Final", data.final);
         renderPodio(data.podio);
       })
       .catch(err => {
