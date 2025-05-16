@@ -40,10 +40,52 @@
   </section>
   <section id="bracket" class="section bracket-section">
     <h2>Bracket del Torneo</h2>
-    <div id="bracket"></div>
-    <div style="text-align:center; margin-top: 20px;">
-    <button id="genBtn" class="btn">Generar Enfrentamientos</button>
-    </div>
+   <div id="bracket" class="tree">
+  <!-- El fixture se llenará dinámicamente aquí -->
+</div>
+
+<script>
+  fetch("equipos.json")
+    .then(res => res.json())
+    .then(data => {
+      const fases = {
+        "🟢 Ronda 1 (16vos)": data.equipos,
+        "⚔️ Octavos de final": data.octavos,
+        "🛡️ Cuartos de final": data.cuartos,
+        "♻️ Repechaje": data.repechaje,
+        "🔥 Semifinal": data.semifinal,
+        "🏁 Final": data.final
+      };
+
+      const tree = document.getElementById("bracket");
+
+      for (const [ronda, equipos] of Object.entries(fases)) {
+        const column = document.createElement("div");
+        column.className = "round";
+
+        const heading = document.createElement("h3");
+        heading.textContent = ronda;
+        column.appendChild(heading);
+
+        for (let i = 0; i < equipos.length; i += 2) {
+          const team1 = equipos[i] || "Por definir";
+          const team2 = equipos[i + 1] || "Por definir";
+
+          const match = document.createElement("div");
+          match.className = "match";
+          match.innerHTML = `<span>${team1}</span><span>vs</span><span>${team2}</span>`;
+          column.appendChild(match);
+        }
+
+        tree.appendChild(column);
+      }
+    })
+    .catch(err => {
+      document.getElementById("bracket").innerHTML = "<p>Error al cargar el fixture.</p>";
+      console.error("Error al cargar equipos.json:", err);
+    });
+</script>
+
 
     <div style="text-align:center; margin-top: 20px;">
     <button id="triangularBtn" class="btn" style="display:none;">Semifinal Triangular</button>

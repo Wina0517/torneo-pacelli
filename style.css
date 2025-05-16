@@ -82,3 +82,39 @@ h1, h2 {
   color: #00ffd0;
   font-weight: bold;
 }
+/* === Estilos para el Fixture Visual (Árbol de Eliminación) === */
+.tree {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  overflow-x: auto;
+  margin-top: 40px;
+  flex-wrap: nowrap;
+}
+
+.round {
+  flex: 1;
+  min-width: 140px;
+}
+
+.round h3 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.match {
+  background: #1c1c1c;
+  border-left: 4px solid #00ffd0;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  box-shadow: 0 0 10px #00ffd0;
+}
+
+.match span {
+  display: block;
+  padding: 4px 0;
+}
